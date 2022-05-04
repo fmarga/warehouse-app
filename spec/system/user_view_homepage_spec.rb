@@ -5,7 +5,7 @@ describe 'Usuario visita tela inicial' do
     #arrange - preparação: unico bloco que pode estar vazio em um momento inicial
 
     #act - ação do teste
-    visit('/') #metodo que leva o teste para a pagina requerida
+    visit(root_path) #metodo que leva o teste para a pagina requerida
 
     #assert - garantias
     expect(page).to have_content('Galpões & Estoque')
@@ -15,7 +15,7 @@ describe 'Usuario visita tela inicial' do
     Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60_000)
     Warehouse.create(name: 'Maceio', code: 'MCZ', city: 'Maceio', area: 50_000)
 
-    visit('/')
+    visit(root_path)
 
     expect(page).not_to have_content('Não existem galpões cadastrados')
     expect(page).to have_content('Rio')
@@ -31,7 +31,7 @@ describe 'Usuario visita tela inicial' do
 
   it 'e não existem galpões cadastrados' do
 
-    visit('/')
+    visit(root_path)
 
     expect(page).to have_content('Não existem galpões cadastrados')
   end
