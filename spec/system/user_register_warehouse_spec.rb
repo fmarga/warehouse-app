@@ -27,6 +27,7 @@ describe 'Usuário cadastra um galpão' do
     click_on 'Enviar'
 
     expect(current_path).to eq root_path
+    expect(page).to have_content 'Galpão cadastrado com sucesso!'
     expect(page).to have_content 'Porto Alegre'
     expect(page).to have_content 'POA'
     expect(page).to have_content '10000 m²'

@@ -19,6 +19,6 @@ class WarehousesController < ApplicationController
     #require - procura a chave dentro do hash de params
     #permit - acessa as chaves dentro da chave utilizada pelo require
 
-    redirect_to root_path
+    redirect_to root_path, notice: "Galpão cadastrado com sucesso!"
   end
 end
