@@ -5,29 +5,22 @@
 <p align="justify">Projeto desenvolvido na Etapa 1 do Programa TreinaDev realizado pela Campus Code. A aplicação consiste em um Sistema de Galpões e Estoque que controla o estoque de produtos de um e-commerce fictício.</p>
 
 > Status do projeto: Em desenvolvimento :warning:
-> Este README está em constante mudança, visto que o projeto ainda não está finalizado
+
+Este README está em constante mudança, visto que o projeto ainda não está finalizado
 
 ---
-
-<br><br>
 
 ## Linguagens utilizadas
-
----
 
 - [Ruby](https://www.ruby-lang.org/pt/)
 
 ## Gems instaladas
-
----
 
 - [Rails](https://rubyonrails.org/): framework da linguagem Ruby
 - [Capybara](https://github.com/teamcapybara/capybara) na versão 3.36.0: para a criação de testes de aceitação
 - [RSpec](https://github.com/rspec/rspec-rails) na versão 3.11.0: para a criação de testes unitários
 
 ## Pré-requisitos do sistema
-
----
 
 Para que a aplicação rode de maneira adequada, é necessário que o seu computador tenha as seguintes instalações nas versões abaixo descritas (ou superior):
 
@@ -39,11 +32,7 @@ Para que a aplicação rode de maneira adequada, é necessário que o seu comput
 
 ## Database
 
----
-
 O banco de dados que está sendo utilizado na aplicação é o SQLite3 (banco configurado como padrão em aplicações rails)
-
----
 
 <!-- checklist para atualização
   Things you may want to cover:
