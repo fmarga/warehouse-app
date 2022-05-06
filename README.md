@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-<p align="justify">Projeto desenvolvido na Etapa 1 do Programa TreinaDev realizado pela Campus Code. A aplicação consiste em um Sistema de Galpões e Estoque que controla o estoque de produtos de um e-commerce fictício.</p>
+Projeto desenvolvido na Etapa 1 do Programa TreinaDev realizado pela [Campus Code](https://www.campuscode.com.br/). A aplicação consiste em um Sistema de Galpões e Estoque que controla o estoque de produtos de um e-commerce fictício.
 
 > Status do projeto: Em desenvolvimento :warning:
 
