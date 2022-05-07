@@ -75,5 +75,13 @@ RSpec.describe Warehouse, type: :model do
         expect(second_warehouse.valid?).to eq false
       end
     end
+
+    context 'format' do
+      it 'false when postal code is incomplete' do
+        warehouse = Warehouse.create(name: 'Galpão Porto Alegre', code: 'POA', city: 'Porto Alegre', area: 20000, address: 'Av. do Galpão, 10', postal_code: '90000-00', description: 'Galpão da cidade de Porto Alegre')
+        
+        expect(warehouse.valid?).to be_falsy
+      end
+    end
   end
 end
