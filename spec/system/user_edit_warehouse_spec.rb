@@ -29,7 +29,7 @@ describe 'Usuário edita um galpão' do
     fill_in 'Área', with: '50000'
     fill_in 'Endereço', with: 'Av. do Aeroporto, 3000'
     fill_in 'Descrição', with: 'Galpão do aeroporto internacional'
-    click_on 'Atualizar'
+    click_on 'Enviar'
 
     expect(page).to have_content 'Galpão atualizado com sucesso!'
     expect(page).to have_content 'Nome: Galpão do Galeão'
@@ -49,8 +49,8 @@ describe 'Usuário edita um galpão' do
     fill_in 'Área', with: ''
     fill_in 'Endereço', with: ''
     fill_in 'Descrição', with: ''
-    click_on 'Atualizar'
+    click_on 'Enviar'
 
-    expect(page).to have_content 'Não foi possível atualizar o galpão, todos os campos são obrigatórios'
+    expect(page).to have_content 'Não foi possível atualizar o galpão'
   end
 end

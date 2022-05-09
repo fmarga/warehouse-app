@@ -1,16 +1,13 @@
 class WarehousesController < ApplicationController
-  def show
-    id = params[:id]
-    @warehouse = Warehouse.find(id)
-  end
+  before_action :set_warehouse, only: [:show, :edit, :update]
+
+  def show; end
 
   def new
     @warehouse = Warehouse.new
   end
 
   def create
-    warehouse_params = params.require(:warehouse).permit(:name, :code, :city, :area, :address, :postal_code, :description)
-
     @warehouse = Warehouse.new(warehouse_params)
 
     if @warehouse.save
@@ -24,18 +21,25 @@ class WarehousesController < ApplicationController
     #permit - acessa as chaves dentro da chave utilizada pelo require
   end
 
-  def edit
-    @warehouse = Warehouse.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @warehouse = Warehouse.find(params[:id])
-    warehouse_params = params.require(:warehouse).permit(:name, :code, :city, :area, :address, :postal_code, :description)
     if @warehouse.update(warehouse_params)
       redirect_to warehouse_path(@warehouse.id), notice: 'Galpão atualizado com sucesso!'
     else
-      flash.now[:notice] = 'Não foi possível atualizar o galpão, todos os campos são obrigatórios'
+      flash.now[:notice] = 'Não foi possível atualizar o galpão'
       render 'edit'
     end
+  end
+
+
+  #cria um metodo privado, que pode ser acessado pelo proprio controller (não é uma action, então não cria uma rota), para evitar verbosidade
+  private
+  def set_warehouse
+    @warehouse = Warehouse.find(params[:id])
+  end
+
+  def warehouse_params
+    params.require(:warehouse).permit(:name, :code, :city, :area, :address, :postal_code, :description)
   end
 end
