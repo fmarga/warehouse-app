@@ -8,6 +8,11 @@
   <strong>Endereço:</strong> <%= @warehouse.address %> <strong>CEP:</strong> <%= @warehouse.postal_code %>
 </div>
 
-<%= link_to('Voltar', root_path) %>
-<%= link_to('Editar', edit_warehouse_path(@warehouse.id)) %>
-<%= button_to('Remover', warehouse_path(@warehouse.id), method: :delete) %>
+<div>
+  <%= link_to('Editar', edit_warehouse_path(@warehouse.id)) %>
+  <%= button_to('Remover', warehouse_path(@warehouse.id), method: :delete) %>
+  <%# diferença entre link e button: link é geralmente feito para metodos do tipo GET, em que o usuario nao realiza ações diretas com ele. button é utilizado para os outros metodos em que existe a possibilidade de algum evento ao clicar (patch, delete, post) %>
+</div>
+<div>
+  <%= link_to('Voltar', root_path) %>
+</div>
