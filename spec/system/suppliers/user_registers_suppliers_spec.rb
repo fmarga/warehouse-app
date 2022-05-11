@@ -17,7 +17,7 @@ describe 'Usuário cadastra um fornecedor' do
     expect(page).to have_field('E-mail')
     expect(page).to have_field('Cidade')
     expect(page).to have_field('Estado')
-    expect(page).to have_button('Cadastrar')
+    expect(page).to have_button('Enviar')
   end
 
   it 'com sucesso' do
@@ -34,7 +34,7 @@ describe 'Usuário cadastra um fornecedor' do
     fill_in 'Cidade', with: 'São Paulo'
     fill_in 'Estado', with: 'SP'
     fill_in 'E-mail', with: 'umaempresa@gmail.com'
-    click_on 'Cadastrar'
+    click_on 'Enviar'
 
     expect(current_path).to eq suppliers_path
     expect(page).to have_content 'Fornecedor cadastrado com sucesso!'
@@ -55,7 +55,7 @@ describe 'Usuário cadastra um fornecedor' do
     fill_in 'E-mail', with: ''
     fill_in 'Cidade', with: 'Porto Alegre'
     fill_in 'Estado', with: 'RS'
-    click_on 'Cadastrar'
+    click_on 'Enviar'
 
     expect(page).to have_content 'Fornecedor não cadastrado'
     expect(page).to have_content 'Razão Social não pode ficar em branco'

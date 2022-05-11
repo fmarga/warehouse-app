@@ -5,7 +5,7 @@
   </nav>  
   <% @suppliers.each do |s| %>
     <div>
-      <h3><%= s.brand_name %></h3>
+      <h3><%= link_to s.brand_name, s %></h3>
       <dl>
         <dt> Cidade:</dt>
         <dd><%= s.city %> - <%= s.state %> </dd>
