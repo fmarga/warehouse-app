@@ -19,6 +19,7 @@ Este README está em constante mudança, visto que o projeto ainda não está fi
 - [Rails](https://rubyonrails.org/): framework da linguagem Ruby
 - [Capybara](https://github.com/teamcapybara/capybara) na versão 3.36.0: para a criação de testes de sistema
 - [RSpec](https://github.com/rspec/rspec-rails) na versão 3.11.0: para a criação de testes unitários
+- [i18n](https://guides.rubyonrails.org/i18n.html): utilizada para internacionalização da aplicação
 
 ## Pré-requisitos do sistema
 
