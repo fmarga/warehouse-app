@@ -34,4 +34,14 @@ describe 'Usuário vê página de fornecedores' do
 
     expect(page).to have_content 'Não existem fornecedores cadastrados'
   end
+
+  it 'e volta para a página inicial' do
+    visit root_path
+    within('.nav') do
+      click_on 'Fornecedores'
+    end
+    click_on 'Página Inicial'
+
+    expect(current_path).to eq root_path
+  end
 end
