@@ -16,7 +16,7 @@ pt-BR:
         corporate_name: "Razão Social"
         brand_name: "Nome Fantasia"
         registration_number: "CNPJ"
-        full_addres: "Endereço"
+        full_address: "Endereço"
         city: "Cidade"
         state: "Estado"
         email: "E-mail"

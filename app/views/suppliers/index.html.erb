@@ -1,5 +1,8 @@
 <section id="suppliers">
   <h2>Fornecedores</h2>
+  <nav>
+    <%= link_to 'Cadastrar Fornecedor', new_supplier_path %>
+  </nav>  
   <% @suppliers.each do |s| %>
     <div>
       <h3><%= s.brand_name %></h3>
