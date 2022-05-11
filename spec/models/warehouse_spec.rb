@@ -57,7 +57,7 @@ RSpec.describe Warehouse, type: :model do
       end
     end
 
-    context 'uniqueness' do
+    context '#uniqueness' do
       it 'false when code is already in use' do
         #arrange - criar 2 galpoes com o mesmo código
         first_warehouse = Warehouse.create(name: 'POA', code: 'POA', city: 'Porto Alegre', area: 20000, address: 'Av. do Galpão, 10', postal_code: '90000-000', description: 'Galpão da cidade de Porto Alegre')
@@ -76,9 +76,17 @@ RSpec.describe Warehouse, type: :model do
       end
     end
 
-    context 'format' do
+    context '#format' do
       it 'false when postal code is incomplete' do
         warehouse = Warehouse.create(name: 'Galpão Porto Alegre', code: 'POA', city: 'Porto Alegre', area: 20000, address: 'Av. do Galpão, 10', postal_code: '90000-00', description: 'Galpão da cidade de Porto Alegre')
+        
+        expect(warehouse.valid?).to be_falsy
+      end
+    end
+
+    context '#length' do
+      it 'false when code is bigger than 3 characters' do
+        warehouse = Warehouse.create(name: 'Galpão Porto Alegre', code: 'POAS', city: 'Porto Alegre', area: 20000, address: 'Av. do Galpão, 10', postal_code: '90000-000', description: 'Galpão da cidade de Porto Alegre')
         
         expect(warehouse.valid?).to be_falsy
       end
