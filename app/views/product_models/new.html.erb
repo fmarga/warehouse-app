@@ -1,0 +1,44 @@
+<h1>Cadastro de novo modelo de produto</h1>
+
+<% if @product_models.errors.any? %>
+  <p>Preencha o formulário corretamente</p>
+  <ul>
+    <% @product_models.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @product_models) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+  </div>
+  <div>
+    <%= f.label :width %>
+    <%= f.text_field :width %>
+  </div>
+  <div>
+    <%= f.label :height %>
+    <%= f.text_field :height %>
+  </div>
+  <div>
+    <%= f.label :depth %>
+    <%= f.text_field :depth %>
+  </div>
+  <div>
+    <%= f.label :sku %>
+    <%= f.text_field :sku %>
+  </div>
+  <div>
+    <%= f.label :supplier_id, Supplier.model_name.human %>
+    <%= f.collection_select :supplier_id, Supplier.order(:brand_name), :id, :brand_name %>
+  </div>
+  <div>
+    <%= f.submit 'Enviar' %>
+  </div>
+<% end %>
