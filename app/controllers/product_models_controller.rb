@@ -4,14 +4,17 @@ class ProductModelsController < ApplicationController
   end
 
   def new
-    @product_models = ProductModel.new
+    @product_model = ProductModel.new
+    @suppliers = Supplier.all
   end
 
   def create
-    @product_models = ProductModel.new(pm_params)
-    if @product_models.save
+    @product_model = ProductModel.new(pm_params)
+    
+    if @product_model.save
       redirect_to product_models_path, notice: 'Modelo cadastrado com sucesso!'
     else
+      @suppliers = Supplier.all
       flash.now[:notice] = 'Não foi possível cadastrar novo modelo'
       render 'new'
     end

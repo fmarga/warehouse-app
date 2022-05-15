@@ -20,7 +20,8 @@ describe 'Usuário cadastra modelo de produto' do
   end
 
   it 'com sucesso' do
-    supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung LTDA', registration_number: 1234567890123, full_address: 'Av. das Nações Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'emaildasamsung@gmail.com')
+    samsung = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung LTDA', registration_number: 1234567890123, full_address: 'Av. das Nações Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'emaildasamsung@gmail.com')
+    apple = Supplier.create!(brand_name: 'Apple', corporate_name: 'Apple LTDA', registration_number: 4567890123456, full_address: 'Av. das Nações Unidas, 2000', city: 'São Paulo', state: 'SP', email: 'emaildaapple@gmail.com')
 
     visit root_path
     within('.nav') do
@@ -44,8 +45,8 @@ describe 'Usuário cadastra modelo de produto' do
   end
 
   it 'com dados incompletos' do
-    supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung LTDA', registration_number: 1234567890123, full_address: 'Av. das Nações Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'emaildasamsung@gmail.com')
-    supplier = Supplier.create!(brand_name: 'Electrolux', corporate_name: 'Electrolux LTDA', registration_number: 9234567890123, full_address: 'Av. das Nações Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'emaildasamsung@gmail.com')
+    samsung = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung LTDA', registration_number: 1234567890123, full_address: 'Av. das Nações Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'emaildasamsung@gmail.com')
+    electrolux = Supplier.create!(brand_name: 'Electrolux', corporate_name: 'Electrolux LTDA', registration_number: 9234567890123, full_address: 'Av. das Nações Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'emaildasamsung@gmail.com')
 
     visit root_path
     within('.nav') do
