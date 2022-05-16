@@ -7,7 +7,7 @@
   <div>
     <% @product_models.each do |pm| %>
       <div>
-        <h2><%= pm.name %> </h2>
+        <h2><%= link_to(pm.name, pm) %> </h2>
         <dl>
           <dt>SKU</dt>
           <dd><%= pm.sku %></dd>

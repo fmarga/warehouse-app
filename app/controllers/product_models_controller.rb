@@ -20,6 +20,10 @@ class ProductModelsController < ApplicationController
     end
   end
 
+  def show
+    @product_model = ProductModel.find(params[:id])
+  end
+
   private
   def pm_params
     params.require(:product_model).permit(:name, :weight, :width, :height, :depth, :sku, :supplier_id)

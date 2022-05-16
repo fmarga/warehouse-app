@@ -1,0 +1,13 @@
+<h1><%= @product_model.name %></h1>
+
+<div>
+  <strong>Nome do Modelo: </strong> <%= @product_model.name %>
+  <strong>SKU: </strong> <%= @product_model.sku %>
+  <strong>Fornecedor: </strong> <%= @product_model.supplier.brand_name %>
+  <strong>Dimensões: </strong> <%= @product_model.width %>cm x <%= @product_model.height %>cm x <%= @product_model.depth %>cm
+  <strong>Peso: </strong> <%= @product_model.weight %>g
+</div>
+
+<div>
+  <%= link_to 'Voltar', product_models_path %>
+</div>
