@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe 'Usuário cadastra modelo de produto' do
   it 'a partir da página de modelos de produtos' do
+    user = User.create!(email: 'marga@gmail.com', password: 'password')
 
+    login_as(user)
     visit root_path
     within('.nav') do
       click_on 'Modelos de Produtos'
@@ -20,9 +22,11 @@ describe 'Usuário cadastra modelo de produto' do
   end
 
   it 'com sucesso' do
+    user = User.create!(email: 'marga@gmail.com', password: 'password')
     samsung = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung LTDA', registration_number: 1234567890123, full_address: 'Av. das Nações Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'emaildasamsung@gmail.com')
     apple = Supplier.create!(brand_name: 'Apple', corporate_name: 'Apple LTDA', registration_number: 4567890123456, full_address: 'Av. das Nações Unidas, 2000', city: 'São Paulo', state: 'SP', email: 'emaildaapple@gmail.com')
 
+    login_as(user)
     visit root_path
     within('.nav') do
       click_on 'Modelos de Produtos'
@@ -45,9 +49,11 @@ describe 'Usuário cadastra modelo de produto' do
   end
 
   it 'com dados incompletos' do
+    user = User.create!(email: 'marga@gmail.com', password: 'password')
     samsung = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung LTDA', registration_number: 1234567890123, full_address: 'Av. das Nações Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'emaildasamsung@gmail.com')
     electrolux = Supplier.create!(brand_name: 'Electrolux', corporate_name: 'Electrolux LTDA', registration_number: 9234567890123, full_address: 'Av. das Nações Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'emaildasamsung@gmail.com')
 
+    login_as(user)
     visit root_path
     within('.nav') do
       click_on 'Modelos de Produtos'
