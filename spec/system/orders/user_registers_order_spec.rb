@@ -19,7 +19,7 @@ describe 'Usuário cadastra um pedido' do
     visit root_path
     login_as(user)
     click_on 'Registrar pedido'
-    select rio.name, from: 'Galpão Destino'
+    select 'SDU | Galpão do Rio', from: 'Galpão Destino'
     select empresa.corporate_name, from: 'Fornecedor'
     fill_in "Data Prevista de Entrega",	with: "20/12/2022" 
     click_on 'Gravar'

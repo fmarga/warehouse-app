@@ -51,4 +51,14 @@ RSpec.describe Supplier, type: :model do
       end
     end
   end
+
+  describe '#full_description' do
+    it 'exibe o nome fantasia e a razão social' do
+      s = Supplier.new(brand_name: 'Fornece Mais', corporate_name: 'Empresa LTDA')
+
+      result = s.full_description()
+
+      expect(result).to eq('Fornece Mais - Empresa LTDA')
+    end
+  end
 end
