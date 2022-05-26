@@ -13,6 +13,24 @@ RSpec.describe Order, type: :model do
 
       expect(result).to be true
     end
+
+    it 'data estimada de entrega deve ser obrigatória' do
+      order = Order.new(estimated_delivery_date: '')
+
+      order.valid?
+      result = order.errors.include?(:estimated_delivery_date)
+
+      expect(result).to be true
+    end
+
+    it 'data estimada de entrega não deve ser anterior ao dia do pedido' do
+      order = Order.new(estimated_delivery_date: 1.day.ago)
+
+      order.valid?
+
+      expect(order.errors.include?(:estimated_delivery_date)).to be true
+      expect(order.errors[:estimated_delivery_date]).to include(' deve ser futura')
+    end
   end
 
   describe 'gera um código aleatório' do
