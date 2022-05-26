@@ -15,6 +15,7 @@ describe 'Usuário cadastra um pedido' do
     rio = Warehouse.create!(name: 'Galpão do Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60_000, address: 'Av. do Porto, 1000', postal_code: '20000-000', description: 'Galpão da zona portuária do Rio de Janeiro')
     company = Supplier.create!(corporate_name: 'Empresa2 LTDA', brand_name: 'Uma Outra Empresa', registration_number: '1234567861234', full_address: 'Av. da Empresa, 5000', city: 'São Paulo', state: 'SP', email: 'umaoutraempresa@gmail.com')
     empresa = Supplier.create!(corporate_name: 'Empresa LTDA', brand_name: 'Uma Empresa', registration_number: 1234567890123, full_address: 'Av. da Empresa, 10', city: 'Porto Alegre', state: 'RS', email: 'emaildaempresa@gmail.com')
+    allow(SecureRandom).to receive(:alphanumeric).and_return('ABC12345')
     
     visit root_path
     login_as(user)
@@ -25,6 +26,7 @@ describe 'Usuário cadastra um pedido' do
     click_on 'Gravar'
 
     expect(page).to have_content 'Pedido registrado com sucesso!'
+    expect(page).to have_content 'Pedido ABC12345'
     expect(page).to have_content 'Galpão destino: Galpão do Rio'
     expect(page).to have_content 'Fornecedor: Empresa LTDA'
     expect(page).to have_content 'Data Prevista de Entrega: 20/12/2022'
