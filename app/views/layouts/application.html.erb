@@ -15,15 +15,21 @@
         <h1>Galpões & Estoque</h1>
       <% end %>
       <nav class="nav">
-        <%= link_to 'Página Inicial', root_path %>
-        <%= link_to 'Fornecedores', suppliers_path %>
-        <%= link_to 'Modelos de Produtos', product_models_path %>
-        <%= link_to 'Registrar pedido', new_order_path %>
+        <%= link_to 'Página Inicial', root_path, class: 'nav-btn' %>
+        <%= link_to 'Fornecedores', suppliers_path, class: 'nav-btn' %>
+        <%= link_to 'Modelos de Produtos', product_models_path, class: 'nav-btn' %>
+        <%= link_to 'Registrar pedido', new_order_path, class: 'nav-btn' %>
+
         <% if user_signed_in? %>
+          <%= form_with(url: search_orders_path, method: :get) do |f| %>
+            <%= f.label :query, 'Buscar Pedido' %>
+            <%= f.text_field :query %>
+            <%= f.submit 'Buscar' %>
+          <% end %>
           Olá <%= current_user.name %>
-          <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
+          <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-btn' %>
         <% else %>
-          <%= link_to 'Entrar', new_user_session_path %>
+          <%= link_to 'Entrar', new_user_session_path, class: 'nav-btn' %>
         <% end %>
       </nav>
     </header>

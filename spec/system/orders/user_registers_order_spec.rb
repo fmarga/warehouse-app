@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'Usuário cadastra um pedido' do
-
   it 'e deve estar autenticado' do
     visit root_path
     click_on 'Registrar pedido'
