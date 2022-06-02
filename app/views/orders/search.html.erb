@@ -3,8 +3,6 @@
 <% if @orders.present? %>
   <p><%= @orders.count %> <%= Order.model_name.human(count: @orders.count).downcase %> <%= t(:found, count: @orders.count) %> </p>
   <% @orders.each do |order| %>
-    <p>Código: <%= order.code %></p>
-    <p>Galpão destino: <%= order.warehouse.full_description %></p>
-    <p>Fornecedor: <%= order.supplier.corporate_name %></p>
+    <%= render order %>
   <% end %>
 <% end %>
