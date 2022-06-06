@@ -21,6 +21,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    if @order.user != current_user
+      redirect_to root_path, notice: 'Acesso negado, não foi possível exibir o pedido'
+    end
   end
 
   def search

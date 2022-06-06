@@ -1,3 +1,3 @@
-<p>Código: <%= order.code %></p>
+<p>Código: <%= link_to order.code, order %></p>
 <p>Galpão destino: <%= order.warehouse.full_description %></p>
 <p>Fornecedor: <%= order.supplier.corporate_name %></p>
