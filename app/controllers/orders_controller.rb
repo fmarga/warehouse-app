@@ -26,6 +26,22 @@ class OrdersController < ApplicationController
     end
   end
 
+  def edit
+    @order = Order.find(params[:id])
+    return redirect_to root_path if @order.user != current_user
+    @warehouses = Warehouse.all
+    @suppliers = Supplier.all
+  end
+
+  def update
+    order_params = params.require(:order).permit(:warehouse_id, :supplier_id, :estimated_delivery_date)
+    @order = Order.find(params[:id])
+    return redirect_to root_path if @order.user != current_user
+    @order.update(order_params)
+
+    redirect_to @order, notice: 'Pedido atualizado com sucesso'
+  end
+
   def search
     @code = params[:query]
     @orders = Order.where("code LIKE ?", "%#{@code}%")
